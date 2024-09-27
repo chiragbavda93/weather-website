@@ -51,7 +51,7 @@ app.get('/help/*',(req, res)=>{
 app.get('/help',(req, res)=>{
     res.send([{name: 'Chirag', age: 29},{name: 'Chirag', age: 29}])
 })
-
+ 
 app.get('/weather',(req, res)=>{
     if(!req.query.address){
         return res.send({
