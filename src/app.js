@@ -2,6 +2,8 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const app = express();
+
+const port = process.env.PORT || 3000
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
@@ -51,7 +53,7 @@ app.get('/help/*',(req, res)=>{
 app.get('/help',(req, res)=>{
     res.send([{name: 'Chirag', age: 29},{name: 'Chirag', age: 29}])
 })
- 
+
 app.get('/weather',(req, res)=>{
     if(!req.query.address){
         return res.send({
@@ -103,6 +105,6 @@ app.get('*', (req,res)=>{
         created: 'Chirag'
     }); 
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('Server is up on port 3000');
 })
